@@ -7,12 +7,12 @@
 Summary:	%{_pearname} - fast creation of valid XML with DTD control and translation options
 Summary(pl):	%{_pearname} - szybkie tworzenie poprawnego XML-u ze sprawdzaniem DTD i opcjami dla t³umaczeñ
 Name:		php-pear-%{_pearname}
-Version:	0.9
-Release:	2
+Version:	1.0.0
+Release:	1
 License:	PHP 2.02
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
-# Source0-md5:	25c5496940c8f789b7a8a6bf9dd26aa0
+# Source0-md5:	9943e2111de3f00ad3daf320548e783a
 URL:		http://pear.php.net/package/XML_FastCreate/
 BuildRequires:	rpm-php-pearprov >= 4.0.2-98
 Requires:	php-pear
