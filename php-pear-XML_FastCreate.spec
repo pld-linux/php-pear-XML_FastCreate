@@ -46,10 +46,34 @@ to :
 
 In PEAR status of this package is: %{_status}.
 
-#%description -l pl
-#...
-#
-#Ta klasa ma w PEAR status: %{_status}.
+%description -l pl
+Kluczowe mo¿liwo¶ci tego pakietu obejmuj±:
+- prosty sposób tworzenia poprawnego XML-a:
+     $x->div(
+         $x->h1("Przyk³ad"),
+         $x->p("Witaj"),
+         $x->p(array('class'=>'example'), "¦wiecie!")
+     )
+
+- opcjê zg³aszania b³êdów DTD w XML-u:
+u¿ycie wewnêtrznego narzêdzia lub zewnêtrznego programu (wymaga
+pakietu XML_DTD)
+
+- u¿ycie wybranego sterownika wyj¶ciowego:
+Text : return string
+XML_Tree : return XML_Tree object
+(wymaga pakietu XML_Tree)
+
+- opcjê t³umaczenia szybko przekszta³caj±c± znaczniki przez inne, np.
+w celu przet³umaczenia XML-a na XHTML:
+<news><title>Przyk³ad</title></news>
+na:
+<div class="news"><h1>Przyk³ad</h1></div>
+
+- do³±czanie programu PHP do szybkiego przekszta³cania HTML-a do
+sk³adni FastCreate (wymaga pakietu XML_HTMLSax).
+
+Ta klasa ma w PEAR status: %{_status}.
 
 %prep
 %setup -q -c
@@ -70,4 +94,4 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{php_pear_dir}/%{_class}/*.php
 %{php_pear_dir}/%{_class}/dtd/
-%{php_pear_dir}/%{_class}/%{_subclass}/
+%{php_pear_dir}/%{_class}/%{_subclass}
