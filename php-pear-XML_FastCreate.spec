@@ -1,11 +1,11 @@
 %include	/usr/lib/rpm/macros.php
-%define         _class          XML
-%define         _subclass       FastCreate
+%define		_class		XML
+%define		_subclass	FastCreate
 %define		_status		stable
 %define		_pearname	%{_class}_%{_subclass}
 
-Summary:	%{_pearname} - Fast creation of valid XML with DTD control and translation options.
-#Summary(pl):	%{_pearname} -
+Summary:	%{_pearname} - fast creation of valid XML with DTD control and translation options
+Summary(pl):	%{_pearname} - szybkie tworzenie poprawnego XML-u ze sprawdzaniem DTD i opcjami dla t³umaczeñ
 Name:		php-pear-%{_pearname}
 Version:	0.9
 Release:	1
