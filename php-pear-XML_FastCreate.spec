@@ -22,11 +22,11 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 Key features of this package include:
 - Easy way to make valid XML :
-     $x->div(
-         $x->h1("Example"),
-         $x->p("Hello"),
-         $x->p(array('class'=>'example'), "World !")
-     )
+	$x->div(
+	$x->h1("Example"),
+	$x->p("Hello"),
+	$x->p(array('class'=>'example'), "World !")
+	)
 
 - Option to report DTD errors in your XML :
 Use internal tool or external program [ Require XML_DTD package ]
@@ -49,11 +49,11 @@ In PEAR status of this package is: %{_status}.
 %description -l pl
 Kluczowe mo¿liwo¶ci tego pakietu obejmuj±:
 - prosty sposób tworzenia poprawnego XML-a:
-     $x->div(
-         $x->h1("Przyk³ad"),
-         $x->p("Witaj"),
-         $x->p(array('class'=>'example'), "¦wiecie!")
-     )
+	$x->div(
+	$x->h1("Przyk³ad"),
+	$x->p("Witaj"),
+	$x->p(array('class'=>'example'), "¦wiecie!")
+	)
 
 - opcjê zg³aszania b³êdów DTD w XML-u:
 u¿ycie wewnêtrznego narzêdzia lub zewnêtrznego programu (wymaga
