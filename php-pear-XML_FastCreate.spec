@@ -7,17 +7,18 @@
 Summary:	%{_pearname} - fast creation of valid XML with DTD control and translation options
 Summary(pl):	%{_pearname} - szybkie tworzenie poprawnego XML-u ze sprawdzaniem DTD i opcjami dla t³umaczeñ
 Name:		php-pear-%{_pearname}
-Version:	1.0.0
-Release:	2
+Version:	1.0.1
+Release:	1
 Epoch:		0
 License:	PHP 2.02
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
-# Source0-md5:	9943e2111de3f00ad3daf320548e783a
+# Source0-md5:	55ac0dee25243332e80cd4acedb846b4
 URL:		http://pear.php.net/package/XML_FastCreate/
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 Requires:	php-common >= 3:4.3.2
 Requires:	php-pear
+Requires:	/usr/bin/php
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -96,10 +97,22 @@ Testy dla PEAR::%{_pearname}.
 %prep
 %pear_package_setup
 
+install -d ./%{_bindir}
+mv ./{%{php_pear_dir}/script/HTML2XFC.php,%{_bindir}/HTML2XFC}
+
+install -d ./%{php_pear_dir}/tests/%{_pearname}
+mv ./%{php_pear_dir}/{%{_class}/tests/*,tests/%{_pearname}}
+
+install -d ./%{php_pear_dir}/data/%{_pearname}
+mv ./%{php_pear_dir}/{%{_class}/dtd/*,data/%{_pearname}}
+
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{php_pear_dir}
 %pear_package_install
+
+install -d $RPM_BUILD_ROOT{%{_bindir},%{php_pear_dir}}
+cp -a ./%{_bindir}/* $RPM_BUILD_ROOT%{_bindir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -111,11 +124,13 @@ fi
 
 %files
 %defattr(644,root,root,755)
-%doc install.log
+%doc install.log optional-packages.txt
 %{php_pear_dir}/.registry/*.reg
+%attr(755,root,root) %{_bindir}/*
 %{php_pear_dir}/%{_class}/*.php
 %{php_pear_dir}/%{_class}/%{_subclass}
 
 %files tests
 %defattr(644,root,root,755)
 %{php_pear_dir}/tests/*
+%{php_pear_dir}/data/%{_pearname}
