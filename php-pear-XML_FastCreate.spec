@@ -18,7 +18,6 @@ URL:		http://pear.php.net/package/XML_FastCreate/
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 Requires:	php-common >= 3:4.3.2
 Requires:	php-pear
-Requires:	/usr/bin/php
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -112,7 +111,7 @@ install -d $RPM_BUILD_ROOT%{php_pear_dir}
 %pear_package_install
 
 install -d $RPM_BUILD_ROOT{%{_bindir},%{php_pear_dir}}
-cp -a ./%{_bindir}/* $RPM_BUILD_ROOT%{_bindir}
+install ./%{_bindir}/* $RPM_BUILD_ROOT%{_bindir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
