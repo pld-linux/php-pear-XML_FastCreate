@@ -15,6 +15,7 @@ Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
 # Source0-md5:	7475c831ce8fcbc850aaa3ed4a7d8ab9
 URL:		http://pear.php.net/package/XML_FastCreate/
+BuildRequires:	php-pear-PEAR
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 Requires:	php-common >= 3:4.3.2
 Requires:	php-pear
