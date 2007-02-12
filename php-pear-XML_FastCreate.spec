@@ -5,7 +5,7 @@
 %define		_pearname	%{_class}_%{_subclass}
 
 Summary:	%{_pearname} - fast creation of valid XML with DTD control and translation options
-Summary(pl):	%{_pearname} - szybkie tworzenie poprawnego XML-u ze sprawdzaniem DTD i opcjami dla t³umaczeñ
+Summary(pl.UTF-8):   %{_pearname} - szybkie tworzenie poprawnego XML-u ze sprawdzaniem DTD i opcjami dla tÅ‚umaczeÅ„
 Name:		php-pear-%{_pearname}
 Version:	1.0.3
 Release:	1
@@ -53,38 +53,38 @@ to :
 
 In PEAR status of this package is: %{_status}.
 
-%description -l pl
-Kluczowe mo¿liwo¶ci tego pakietu obejmuj±:
-- prosty sposób tworzenia poprawnego XML-a:
+%description -l pl.UTF-8
+Kluczowe moÅ¼liwoÅ›ci tego pakietu obejmujÄ…:
+- prosty sposÃ³b tworzenia poprawnego XML-a:
 	$x->div(
-	$x->h1("Przyk³ad"),
+	$x->h1("PrzykÅ‚ad"),
 	$x->p("Witaj"),
-	$x->p(array('class'=>'example'), "¦wiecie!")
+	$x->p(array('class'=>'example'), "Åšwiecie!")
 	)
 
-- opcjê zg³aszania b³êdów DTD w XML-u:
-u¿ycie wewnêtrznego narzêdzia lub zewnêtrznego programu (wymaga
+- opcjÄ™ zgÅ‚aszania bÅ‚Ä™dÃ³w DTD w XML-u:
+uÅ¼ycie wewnÄ™trznego narzÄ™dzia lub zewnÄ™trznego programu (wymaga
 pakietu XML_DTD)
 
-- u¿ycie wybranego sterownika wyj¶ciowego:
+- uÅ¼ycie wybranego sterownika wyjÅ›ciowego:
 Text : return string
 XML_Tree : return XML_Tree object
 (wymaga pakietu XML_Tree)
 
-- opcjê t³umaczenia szybko przekszta³caj±c± znaczniki przez inne, np.
-w celu przet³umaczenia XML-a na XHTML:
-<news><title>Przyk³ad</title></news>
+- opcjÄ™ tÅ‚umaczenia szybko przeksztaÅ‚cajÄ…cÄ… znaczniki przez inne, np.
+w celu przetÅ‚umaczenia XML-a na XHTML:
+<news><title>PrzykÅ‚ad</title></news>
 na:
-<div class="news"><h1>Przyk³ad</h1></div>
+<div class="news"><h1>PrzykÅ‚ad</h1></div>
 
-- do³±czanie programu PHP do szybkiego przekszta³cania HTML-a do
-sk³adni FastCreate (wymaga pakietu XML_HTMLSax).
+- doÅ‚Ä…czanie programu PHP do szybkiego przeksztaÅ‚cania HTML-a do
+skÅ‚adni FastCreate (wymaga pakietu XML_HTMLSax).
 
 Ta klasa ma w PEAR status: %{_status}.
 
 %package tests
 Summary:	Tests for PEAR::%{_pearname}
-Summary(pl):	Testy dla PEAR::%{_pearname}
+Summary(pl.UTF-8):   Testy dla PEAR::%{_pearname}
 Group:		Development/Languages/PHP
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 AutoReq:	no
@@ -93,7 +93,7 @@ AutoProv:	no
 %description tests
 Tests for PEAR::%{_pearname}.
 
-%description tests -l pl
+%description tests -l pl.UTF-8
 Testy dla PEAR::%{_pearname}.
 
 %prep
