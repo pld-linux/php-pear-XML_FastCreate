@@ -3,13 +3,11 @@
 %define		_subclass	FastCreate
 %define		_status		stable
 %define		_pearname	%{_class}_%{_subclass}
-
 Summary:	%{_pearname} - fast creation of valid XML with DTD control and translation options
 Summary(pl.UTF-8):	%{_pearname} - szybkie tworzenie poprawnego XML-u ze sprawdzaniem DTD i opcjami dla tłumaczeń
 Name:		php-pear-%{_pearname}
 Version:	1.0.3
-Release:	2
-Epoch:		0
+Release:	3
 License:	PHP 2.02
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
@@ -20,6 +18,10 @@ BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 BuildRequires:	rpmbuild(macros) >= 1.300
 Requires:	php-common >= 3:4.3.2
 Requires:	php-pear
+Suggests:	php-pear-XML_Beautifier >= 1.1
+Suggests:	php-pear-XML_DTD >= 0.4.1
+Suggests:	php-pear-XML_HTMLSax >= 2.1.2
+Suggests:	php-pear-XML_Tree >= 2.0-0.b2
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -86,9 +88,9 @@ Ta klasa ma w PEAR status: %{_status}.
 Summary:	Tests for PEAR::%{_pearname}
 Summary(pl.UTF-8):	Testy dla PEAR::%{_pearname}
 Group:		Development/Languages/PHP
-Requires:	%{name} = %{epoch}:%{version}-%{release}
-AutoReq:	no
+Requires:	%{name} = %{version}-%{release}
 AutoProv:	no
+AutoReq:	no
 
 %description tests
 Tests for PEAR::%{_pearname}.
