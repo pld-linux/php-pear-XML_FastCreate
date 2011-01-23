@@ -22,6 +22,7 @@ Suggests:	php-pear-XML_Beautifier >= 1.1
 Suggests:	php-pear-XML_DTD >= 0.4.1
 Suggests:	php-pear-XML_HTMLSax >= 2.1.2
 Suggests:	php-pear-XML_Tree >= 2.0-0.b2
+Obsoletes:	php-pear-XML_FastCreate-tests
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -84,20 +85,6 @@ składni FastCreate (wymaga pakietu XML_HTMLSax).
 
 Ta klasa ma w PEAR status: %{_status}.
 
-%package tests
-Summary:	Tests for PEAR::%{_pearname}
-Summary(pl.UTF-8):	Testy dla PEAR::%{_pearname}
-Group:		Development/Languages/PHP
-Requires:	%{name} = %{version}-%{release}
-AutoProv:	no
-AutoReq:	no
-
-%description tests
-Tests for PEAR::%{_pearname}.
-
-%description tests -l pl.UTF-8
-Testy dla PEAR::%{_pearname}.
-
 %prep
 %pear_package_setup
 
@@ -133,8 +120,3 @@ fi
 %attr(755,root,root) %{_bindir}/*
 %{php_pear_dir}/%{_class}/*.php
 %{php_pear_dir}/%{_class}/%{_subclass}
-
-%files tests
-%defattr(644,root,root,755)
-%{php_pear_dir}/tests/*
-%{php_pear_dir}/data/%{_pearname}
