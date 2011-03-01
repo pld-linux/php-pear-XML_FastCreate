@@ -7,7 +7,7 @@ Summary:	%{_pearname} - fast creation of valid XML with DTD control and translat
 Summary(pl.UTF-8):	%{_pearname} - szybkie tworzenie poprawnego XML-u ze sprawdzaniem DTD i opcjami dla tłumaczeń
 Name:		php-pear-%{_pearname}
 Version:	1.0.3
-Release:	3
+Release:	4
 License:	PHP 2.02
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
