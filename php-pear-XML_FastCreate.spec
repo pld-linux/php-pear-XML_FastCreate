@@ -1,21 +1,19 @@
+%define		status		stable
+%define		pearname	XML_FastCreate
 %include	/usr/lib/rpm/macros.php
-%define		_class		XML
-%define		_subclass	FastCreate
-%define		_status		stable
-%define		_pearname	%{_class}_%{_subclass}
-Summary:	%{_pearname} - fast creation of valid XML with DTD control and translation options
-Summary(pl.UTF-8):	%{_pearname} - szybkie tworzenie poprawnego XML-u ze sprawdzaniem DTD i opcjami dla tłumaczeń
-Name:		php-pear-%{_pearname}
-Version:	1.0.3
-Release:	4
+Summary:	%{pearname} - fast creation of valid XML with DTD control and translation options
+Summary(pl.UTF-8):	%{pearname} - szybkie tworzenie poprawnego XML-u ze sprawdzaniem DTD i opcjami dla tłumaczeń
+Name:		php-pear-%{pearname}
+Version:	1.0.4
+Release:	1
 License:	PHP 2.02
 Group:		Development/Languages/PHP
-Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
-# Source0-md5:	7475c831ce8fcbc850aaa3ed4a7d8ab9
+Source0:	http://pear.php.net/get/%{pearname}-%{version}.tgz
+# Source0-md5:	1ecd15f5619aa9fa3324e48ec0458583
 URL:		http://pear.php.net/package/XML_FastCreate/
 BuildRequires:	php-pear-PEAR
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
-BuildRequires:	rpmbuild(macros) >= 1.300
+BuildRequires:	rpmbuild(macros) >= 1.580
 Requires:	php-common >= 3:4.3.2
 Requires:	php-pear
 Suggests:	php-pear-XML_Beautifier >= 1.1
@@ -27,7 +25,7 @@ BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 # exclude optional dependencies
-%define		_noautoreq	'pear(XML/Tree.*)' 'pear(XML/DTD.*)' 'pear(XML/Beautifier.*)' 'pear(XML/HTMLSax.*)'
+%define		_noautoreq	pear(XML/Tree.*) pear(XML/DTD.*) pear(XML/Beautifier.*) pear(XML/HTMLSax.*)
 
 %description
 Key features of this package include:
@@ -54,7 +52,7 @@ to :
 - Include a PHP program to quickly transform HTML to FastCreate syntax.
 [ Require XML_HTMLSax package ]
 
-In PEAR status of this package is: %{_status}.
+In PEAR status of this package is: %{status}.
 
 %description -l pl.UTF-8
 Kluczowe możliwości tego pakietu obejmują:
@@ -83,19 +81,21 @@ na:
 - dołączanie programu PHP do szybkiego przekształcania HTML-a do
 składni FastCreate (wymaga pakietu XML_HTMLSax).
 
-Ta klasa ma w PEAR status: %{_status}.
+Ta klasa ma w PEAR status: %{status}.
 
 %prep
 %pear_package_setup
 
+mv .%{php_pear_dir}/data/XML_FastCreate/README .
+
 install -d ./%{_bindir}
 mv ./{%{php_pear_dir}/script/HTML2XFC.php,%{_bindir}/HTML2XFC}
 
-install -d ./%{php_pear_dir}/tests/%{_pearname}
-mv ./%{php_pear_dir}/{%{_class}/tests/*,tests/%{_pearname}}
+install -d ./%{php_pear_dir}/tests/%{pearname}
+mv ./%{php_pear_dir}/{XML/tests/*,tests/%{pearname}}
 
-install -d ./%{php_pear_dir}/data/%{_pearname}
-mv ./%{php_pear_dir}/{%{_class}/dtd/*,data/%{_pearname}}
+install -d ./%{php_pear_dir}/data/%{pearname}
+mv ./%{php_pear_dir}/{XML/dtd/*,data/%{pearname}}
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -115,8 +115,10 @@ fi
 
 %files
 %defattr(644,root,root,755)
+%doc README
 %doc install.log optional-packages.txt
 %{php_pear_dir}/.registry/*.reg
-%attr(755,root,root) %{_bindir}/*
-%{php_pear_dir}/%{_class}/*.php
-%{php_pear_dir}/%{_class}/%{_subclass}
+%attr(755,root,root) %{_bindir}/HTML2XFC
+%{php_pear_dir}/XML/*.php
+%{php_pear_dir}/XML/FastCreate
+%{php_pear_dir}/data/XML_FastCreate
