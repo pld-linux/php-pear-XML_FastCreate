@@ -1,6 +1,5 @@
 %define		status		stable
 %define		pearname	XML_FastCreate
-%include	/usr/lib/rpm/macros.php
 Summary:	%{pearname} - fast creation of valid XML with DTD control and translation options
 Summary(pl.UTF-8):	%{pearname} - szybkie tworzenie poprawnego XML-u ze sprawdzaniem DTD i opcjami dla tłumaczeń
 Name:		php-pear-%{pearname}
